@@ -2,12 +2,15 @@ package stockPack;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class StockDownloader {
-	
+	// hello
 	public static final int DATE = 0;
 	public static final int OPEN = 1;
 	public static final int HIGH = 2;
@@ -57,10 +60,19 @@ public class StockDownloader {
 			while ( input.hasNextLine()){
 				String line = input.nextLine();
 				String[] holder = line.split(",");
-				for ( int i=0; i<7; i++ ){
-					System.out.println(holder[i]);
-				}
 				
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = df.parse(holder[0]);
+				GregorianCalendar cal = new GregorianCalendar();
+				cal.setTime(date);
+				
+				dates.add(cal);
+				opens.add(Double.parseDouble(holder[1]));
+				highs.add(Double.parseDouble(holder[2]));
+				lows.add(Double.parseDouble(holder[3]));
+				closes.add(Double.parseDouble(holder[4]));
+				volumes.add(Integer.parseInt(holder[5]));
+				adjCloses.add(Double.parseDouble(holder[6]));
 				// TODO - connect the data to the correct ArrayList so it can be stored
 
 			}
