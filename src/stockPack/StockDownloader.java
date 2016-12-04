@@ -73,8 +73,8 @@ public class StockDownloader {
 				closes.add(Double.parseDouble(holder[4]));
 				volumes.add(Integer.parseInt(holder[5]));
 				adjCloses.add(Double.parseDouble(holder[6]));
-				// TODO - connect the data to the correct ArrayList so it can be stored
-
+				
+				System.out.println(getAdjCloses());
 			}
 		}
 		catch ( Exception e){

@@ -1,5 +1,6 @@
 package stockPack;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import static java.lang.System.out;
 import java.util.Scanner;
@@ -11,7 +12,7 @@ public class Stocks {
 		String ticker;
 		Scanner key = new Scanner(System.in);
 		
-		/*out.println("Enter the stock you would like to look up (Ticker name)");
+		out.println("Enter the stock you would like to look up (Ticker name)");
 		ticker = key.nextLine();
 		
 		out.println("Enter the start date (Year, Month, Day)");
@@ -25,15 +26,17 @@ public class Stocks {
 		endDay = key.nextInt();
 		
 		
+		
 			// month section is 0 based... January = 0, Feb = 1...etc
 		GregorianCalendar start = new GregorianCalendar(startYear, startMonth, startDay);
 		GregorianCalendar end = new GregorianCalendar(endYear, endMonth, endDay);
 		StockDownloader test = new StockDownloader(ticker, end, start);
-		*/
 		
-		GregorianCalendar start = new GregorianCalendar(2016, 11, 2);
-		GregorianCalendar end = new GregorianCalendar(2016, 11, 2);
-		StockDownloader test = new StockDownloader("PSIX", end, start);
+		ArrayList<Double> adjCloses = test.getAdjCloses();
+		
+		//GregorianCalendar start = new GregorianCalendar(2016, 11, 2);
+		//GregorianCalendar end = new GregorianCalendar(2016, 11, 2);
+		//StockDownloader test = new StockDownloader("PSIX", end, start);
 		
 		
 		
